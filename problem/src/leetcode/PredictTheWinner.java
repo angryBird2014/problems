@@ -6,16 +6,12 @@ package leetcode;
 //http://tianshilei.me/2017/02/08/leetcode486/
 public class PredictTheWinner {
     public static boolean solution(int[] nums){
-
+        return true;
     }
-
+    /*
     public static int[] DFS(int[] nums,int[] flag,int i,int j,int[] sum){
-        /*
-        while (i<nums.length && flag[i]==1)
-            i++;
-        while (j>=0 && flag[i]==1)
-            j--;
-        */
+
+
         if (i>j){ //遍历完毕
             return sum;
         }
@@ -45,5 +41,8 @@ public class PredictTheWinner {
             i--;sum1[1]-=nums[i];flag[i]=0;j++;sum[0]-=nums[j];flag[j]=0;
 
         }
+
     }
+    */
+
 }

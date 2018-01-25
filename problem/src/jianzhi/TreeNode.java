@@ -8,12 +8,12 @@ import java.util.Queue;
  * Created by xyan on 10/5/17.
  */
 public class TreeNode {
-    int val;
-    TreeNode left = null;
-    TreeNode right = null;
-    TreeNode (int x ){
+    public int val;
+    public TreeNode left = null;
+    public TreeNode right = null;
+    public TreeNode (int x ){
         this.val = x;
     }
-    TreeNode (){};
+    public TreeNode (){};
 
 }

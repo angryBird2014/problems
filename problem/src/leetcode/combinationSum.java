@@ -8,8 +8,8 @@ import java.util.*;
 public class combinationSum {
     List<List<Integer>> array = new ArrayList<>();
     public List<List<Integer>> solution(int[] candidates,int target){
-        //Arrays.sort(candidates);
         List<Integer> list = new ArrayList<>();
+        Arrays.sort(candidates);
         findSolution(candidates,target,0,list,0);
         return array;
     }
@@ -22,7 +22,8 @@ public class combinationSum {
             for (int i=index;i<candidates.length;i++){
                 currentSum += candidates[i];
                 list.add(candidates[i]);
-                findSolution(candidates,target,currentSum,list,index);
+                //最后一位设置为i,还是设置为i+1,还是设置为index(0)，好好体会
+                findSolution(candidates,target,currentSum,list,i);
                 list.remove(list.size()-1);
                 currentSum -= candidates[i];
             }
@@ -51,7 +52,7 @@ public class combinationSum {
     public static void main(String[] args) {
         combinationSum s = new combinationSum();
         List<List<Integer>> list = new LinkedList<>();
-        list = s.combinationSum(new int[]{2,3,6,7},7);
+        list = s.solution(new int[]{2,3,6,7},7);
         for (List<Integer> nums:
              list) {
             for (int num:

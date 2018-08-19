@@ -10,6 +10,26 @@ import java.util.List;
  * Created by xyan on 1/6/18.
  */
 public class permute {
+
+    public List<List<Integer>> solution2(int[] nums){
+        List<List<Integer>> array = new ArrayList<>();
+        List<Integer> tmp  = new ArrayList<>();
+        helper(nums,array,tmp);
+        return array;
+    }
+    public void helper(int[] nums,List<List<Integer>> arraylist,List<Integer> tmp){
+        if (tmp.size()==nums.length){
+            arraylist.add(new ArrayList<>(tmp));
+            return;
+        }
+        for (int i=0;i<nums.length;i++){
+            if (tmp.contains(nums[i]))  continue;
+            tmp.add(nums[i]);
+            helper(nums,arraylist,tmp);
+            tmp.remove(tmp.size()-1);
+        }
+    }
+
     public List<List<Integer>> solution(int[] nums){
         Arrays.sort(nums);
         List<List<Integer>> list = new ArrayList<>();
@@ -38,16 +58,10 @@ public class permute {
 
     public static void main(String[] args) {
         permute s = new permute();
-        List<List<Integer>> list = new ArrayList<>();
-        list = s.solution(new int[]{0,1,0,0,9});
-        for (List<Integer> nums:
-                list) {
-            for (int num:
-                    nums) {
-                //System.out.println();
-                System.out.print(num+" ");
-            }
-            System.out.println("");
+        List<List<Integer>> list = s.solution2(new int[]{1,2,3});
+        for (List<Integer> nums:list){
+            System.out.println(nums);
         }
+
     }
 }
